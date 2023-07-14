@@ -62,9 +62,6 @@ const Pad = () => {
     }
   ]
 
-  let textoDisplay = "Texto de prueba";
-  let volumen = 50;
-
   const handleKeyDown = (event) => {
     const keyPressed = event.key.toUpperCase();
     const boton = botones.find((boton) => boton.key === keyPressed);
@@ -77,18 +74,15 @@ const Pad = () => {
     }
 
   }
+  
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
   }, [])
 
   const handleClick = (event) => {
-    console.log(event.target.id);
-    let audioId = botones.filter((boton) => {
-      if (boton.id === event.target.id) {
-        return boton.key;
-      }
-    })
-    console.log(audioId[0].key)
+
+    let audioId = botones.find((boton) => boton.key === event.target.id)
+
     
     let audio = document.getElementById(audioId[0].key);
     audio.play();
