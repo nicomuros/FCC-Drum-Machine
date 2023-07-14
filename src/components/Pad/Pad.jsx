@@ -1,5 +1,17 @@
 import React, { useEffect } from 'react';
 import styles from './Pad.module.css';
+import audio1 from '../../assets/Heater-1.mp3';
+import audio2 from '../../assets/Heater-2.mp3';
+import audio3 from '../../assets/Heater-3.mp3';
+import audio4 from '../../assets/Heater-4_1.mp3';
+import audio5 from '../../assets/Heater-6.mp3';
+import audio6 from '../../assets/Dsc_Oh.mp3';
+import audio7 from '../../assets/Kick_n_Hat.mp3';
+import audio8 from '../../assets/RP4_KICK_1.mp3';
+import audio9 from '../../assets/Cev_H2.mp3';
+
+
+
 
 const Pad = () => {
   /*
@@ -18,47 +30,47 @@ const Pad = () => {
     {
       id: 'Heater-1',
       key: 'Q',
-      src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+      src: audio1
     },
     {
       id: 'Heater-2',
       key: 'W',
-      src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
+      src: audio2
     },
     {
       id: 'Heater-3',
       key: 'E',
-      src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'
+      src: audio3
     },
     {
       id: 'Heater-4',
       key: 'A',
-      src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
+      src: audio4
     },
     {
       id: 'Clap',
       key: 'S',
-      src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'
+      src: audio5
     },
     {
       id: 'Open-HH',
       key: 'D',
-      src: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'
+      src: audio6
     },
     {
       id: "Kick-n'-Hat",
       key: 'Z',
-      src: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'
+      src: audio7
     },
     {
       id: 'Kick',
       key: 'X',
-      src: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
+      src: audio8
     },
     {
       id: 'Closed-HH',
       key: 'C',
-      src: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
+      src: audio9 
     }
   ]
 
@@ -81,14 +93,14 @@ const Pad = () => {
 
   const handleClick = (event) => {
 
-    let audioId = botones.find((boton) => boton.key === event.target.id)
+    let audioId = botones.find((boton) => boton.id === event.target.id)
 
     
-    let audio = document.getElementById(audioId[0].key);
+    let audio = document.getElementById(audioId.key);
     audio.play();
 
     let display = document.getElementById('display');
-    display.innerHTML = audioId[0].id;
+    display.innerHTML = audioId.id;
   }
 
   return (
